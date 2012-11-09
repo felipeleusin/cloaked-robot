@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloakedRobot.Web", "MyBlog.Web\CloakedRobot.Web.csproj", "{37E3CAD9-6E0E-42EC-8CFA-2DBCEAD1FED3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloakedRobot.Web", "CloakedRobot.Web\CloakedRobot.Web.csproj", "{37E3CAD9-6E0E-42EC-8CFA-2DBCEAD1FED3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
