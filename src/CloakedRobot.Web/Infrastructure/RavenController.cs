@@ -7,7 +7,6 @@ using System.Web.Mvc;
 namespace CloakedRobot.Web.Infrastructure
 {
     public class RavenController : Controller
-    {
-        override 
+    {        
     }
 }
