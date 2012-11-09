@@ -152,7 +152,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Infrastructure\RavenController.cs" />
+    <Compile Include="Infrastructure\BaseController.cs" />
+    <Compile Include="Models\BlogConfig.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -188,6 +189,12 @@
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CloakedRobot.Common\CloakedRobot.Common.csproj">
+      <Project>{ede77027-b557-44bf-a0a1-113cd33be5aa}</Project>
+      <Name>CloakedRobot.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

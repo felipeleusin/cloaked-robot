@@ -1,4 +1,5 @@
-﻿using Raven.Client;
+﻿using CloakedRobot.Common.Tasks;
+using Raven.Client;
 using Raven.Client.Document;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,26 @@ namespace CloakedRobot.Web
 
         public MvcApplication()
         {
+            BeginRequest += (sender, args) =>
+            {
+                HttpContext.Current.Items["CurrentRequestRavenSession"] = RavenStore.OpenSession();
+            };
+
+            EndRequest += (sender, args) =>
+            {
+                using (var session = (IDocumentSession)HttpContext.Current.Items["CurrentRequestRavenSession"])
+                {
+                    if (session == null)
+                        return;
+
+                    if (Server.GetLastError() != null)
+                        return;
+
+                    session.SaveChanges();
+                }
+
+                TaskExecutor.StartExecuting();
+            };
         }
 
         protected void Application_Start()

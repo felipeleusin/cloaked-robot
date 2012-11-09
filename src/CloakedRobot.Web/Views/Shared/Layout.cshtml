@@ -5,12 +5,12 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Felipe Leusin</title>
+    <title>@if (!string.IsNullOrEmpty(ViewBag.Title)) { @ViewBag.Title } else { @ViewBag.BlogConfig.BlogName }</title>
 </head>
 <body>
     <section class="content">
         <aside>
-            <img src=""
+            <div id="logo">@ViewBag.BlogConfig.BlogName</div>
         </aside>
         <section class="main">
             @RenderBody()
