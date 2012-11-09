@@ -1,4 +1,5 @@
-﻿using CloakedRobot.Common.Tasks;
+﻿using CloakedRobot.Infrastructure.Tasks;
+using CloakedRobot.Web.Infrastructure;
 using Raven.Client;
 using Raven.Client.Document;
 using System;
@@ -57,6 +58,8 @@ namespace CloakedRobot.Web
             {
                 ConnectionStringName = "RavenDB"
             }.Initialize();
+
+            BlogController.RavenStore = RavenStore;
         }
 
     }

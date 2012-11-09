@@ -5,8 +5,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloakedRobot.Web", "Cloaked
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing.CloakedRobot", "Testing.CloakedRobot\Testing.CloakedRobot.csproj", "{84B25CFE-D437-4862-8B2E-506880CB2DA1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloakedRobot.Common", "CloakedRobot.Common\CloakedRobot.Common.csproj", "{EDE77027-B557-44BF-A0A1-113CD33BE5AA}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,10 +19,6 @@ Global
 		{84B25CFE-D437-4862-8B2E-506880CB2DA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84B25CFE-D437-4862-8B2E-506880CB2DA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84B25CFE-D437-4862-8B2E-506880CB2DA1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EDE77027-B557-44BF-A0A1-113CD33BE5AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EDE77027-B557-44BF-A0A1-113CD33BE5AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EDE77027-B557-44BF-A0A1-113CD33BE5AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EDE77027-B557-44BF-A0A1-113CD33BE5AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace CloakedRobot.Common.Tasks
+namespace CloakedRobot.Infrastructure.Tasks
 {
     public static class TaskExecutor
     {

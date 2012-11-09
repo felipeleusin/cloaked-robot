@@ -8,9 +8,11 @@ using System.Web.Mvc;
 
 namespace CloakedRobot.Web.Infrastructure
 {
-    public class BaseController : Controller
+    public class BlogController : Controller
     {
-        protected IDocumentSession RavenSession { get; set; }
+        public static IDocumentStore RavenStore { get; set; }
+
+        public IDocumentSession RavenSession { get; set; }
 
         private BlogConfig blogConfig;
         public BlogConfig BlogConfig
@@ -31,6 +33,12 @@ namespace CloakedRobot.Web.Infrastructure
                 }
                 return blogConfig;
             }
+        }
+
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            base.OnActionExecuting(filterContext);
+            RavenSession = (IDocumentSession)HttpContext.Items["CurrentRequestRavenSession"];
         }
 
         protected override void OnActionExecuted(ActionExecutedContext filterContext)

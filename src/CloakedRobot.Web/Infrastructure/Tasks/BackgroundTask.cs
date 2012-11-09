@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CloakedRobot.Common.Tasks
+namespace CloakedRobot.Infrastructure.Tasks
 {
     public abstract class BackgroundTask
     {
