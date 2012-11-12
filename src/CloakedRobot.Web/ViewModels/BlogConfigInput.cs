@@ -17,6 +17,10 @@ namespace CloakedRobot.Web.ViewModels
         [Required]
         public string OwnerEmail { get; set; }
 
+        [Display(Name = "Your password")]
+        [DataType(DataType.Password)]
+        public string OwnerPassword { get; set; }
+
         [Display(Name = "Blog Title")]
         public string BlogTitle { get; set; }
 
@@ -24,10 +28,6 @@ namespace CloakedRobot.Web.ViewModels
         public int PageSize { get; set; }
 
         [Display(Name = "Google Analytics Key")]
-        public string GoogleAnalyticsKey { get; set; }
-
-        [Display(Name = "Your password")]
-        [DataType(DataType.Password)]
-        public string OwnerPassword { get; set; }
+        public string GoogleAnalyticsKey { get; set; }        
     }
 }

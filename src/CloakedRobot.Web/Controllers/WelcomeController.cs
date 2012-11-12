@@ -1,6 +1,8 @@
 ﻿using AttributeRouting.Web.Mvc;
 using CloakedRobot.Web.Infrastructure;
 using CloakedRobot.Web.Models;
+using CloakedRobot.Web.ViewModels;
+using CloakedRobot.Web.Infrastructure.AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,13 +16,15 @@ namespace CloakedRobot.Web.Controllers
         [GET("welcome")]
         public ActionResult Index()
         {
-            return View(new BlogConfig() { Id = "Blog/Config" });
+            return View(new BlogConfigInput());
         }
 
         [POST("welcome/configure")]
-        public ActionResult Configure(BlogConfig config)
+        public ActionResult Configure(BlogConfigInput configInput)
         {
+            var config = configInput.MapTo<BlogConfig>().SetPassword(configInput.OwnerPassword);
             config.Id = "Blog/Config";
+
             RavenSession.Store(config);
             RavenSession.SaveChanges();
 
