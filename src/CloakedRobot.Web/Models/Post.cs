@@ -19,11 +19,10 @@ namespace MyBlog.Web.Models
 
         public string Slug { get; set; }
 
+        public DateTimeOffset PublishAt { get; set; }
+
         public DateTimeOffset DateCreated { get; set; }
 
-        public DateTimeOffset DatePublished { get; set; }
-
-        public int ViewCount { get; set; }
-            
+        public bool IsPublic { get; set; }
     }
 }
