@@ -28,7 +28,7 @@ namespace CloakedRobot.Web.Controllers
             RavenSession.Store(config);
             RavenSession.SaveChanges();
 
-            return View();
+            return Redirect("/");
         }
 
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
