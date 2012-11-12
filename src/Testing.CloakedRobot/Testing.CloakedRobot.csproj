@@ -97,7 +97,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Web\Class1.cs" />
+    <Compile Include="Web\BlogConfig\BlogConfigControllerTests.cs" />
+    <Compile Include="Web\BlogControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
