@@ -133,14 +133,24 @@ textarea {
   overflow: auto;
   vertical-align: top;
 }
-.main {
+.content {
   font-family: Cambria, 'Times New Roman', 'Nimbus Roman No9 L', 'Freeserif', Times, serif;
   font-size: 1.1em;
   max-width: 640px;
   margin: 0 auto;
-  border-left: 1px solid #999999;
 }
 aside {
   position: fixed;
+  top: 0;
   left: 0;
+  padding: 2em;
+}
+#logo .gravatar {
+  vertical-align: top;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  border-radius: 40px;
+}
+#logo .owner-name {
+  display: none;
 }

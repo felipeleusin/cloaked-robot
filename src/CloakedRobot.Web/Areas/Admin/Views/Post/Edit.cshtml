@@ -1,0 +1,28 @@
+﻿@model CloakedRobot.Web.Areas.Admin.Models.PostInput
+
+@{
+    ViewBag.Title = "title";
+}
+
+<section>
+    <header>
+        <h1>Write Post</h1>
+    </header>
+
+    <div class="row-fluid">
+        <div class="span12">
+            @using(Html.BeginBootstrapForm("Save", htmlAttributes: new { @class = "form-horizontal"}))
+            {
+                @Html.HiddenFor(x => x.Id)
+
+                @Html.BootstrapControlGroupFor(x => x.Title)
+
+                @Html.BootstrapControlGroupFor(x => x.Permalink)
+
+                @Html.BootstrapControlGroupFor(x => x.Content)
+
+                @Html.BootstrapFormActions("Save","save")
+            }        
+        </div>
+    </div>
+</section>

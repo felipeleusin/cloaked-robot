@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
-namespace MyBlog.Web.Models
+namespace CloakedRobot.Web.Models
 {
     public class Post
     {
@@ -13,11 +10,7 @@ namespace MyBlog.Web.Models
 
         public string Content { get; set; }
 
-        public string Introduction { get; set; }
-
-        public string CanonicalUrl { get; set; }
-
-        public string Slug { get; set; }
+        public string Permalink { get; set; }
 
         public DateTimeOffset PublishAt { get; set; }
 

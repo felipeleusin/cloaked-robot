@@ -1,20 +1,20 @@
 ﻿@{
-    
+    string ownerEmail = ViewBag.BlogConfig.OwnerEmail.ToString();
 }
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>@if (!string.IsNullOrEmpty(ViewBag.Title)) { @ViewBag.Title } else { @ViewBag.BlogConfig.BlogName }</title>
+    <title>@if (!string.IsNullOrEmpty(ViewBag.Title)) { <text>@ViewBag.Title</text> } else { @ViewBag.BlogConfig.BlogTitle }</title>
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/bundles/commonStyles")
 </head>
 <body>
-    <section class="content">
+    <section class="main">
         <aside>
-            <div id="logo">@ViewBag.BlogConfig.BlogName</div>
+            <div id="logo">@Html.GravatarImage(ownerEmail) <span class="owner-name">@ViewBag.BlogConfig.OwnerName</span></div>
         </aside>
-        <section class="main">
+        <section class="content">
             @RenderBody()
         </section>
     </section>

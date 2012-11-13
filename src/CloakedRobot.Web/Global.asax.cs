@@ -1,5 +1,6 @@
 ﻿using CloakedRobot.Infrastructure.Tasks;
 using CloakedRobot.Web.Infrastructure;
+using CloakedRobot.Web.Infrastructure.AutoMapper;
 using Raven.Client;
 using Raven.Client.Document;
 using System;
@@ -53,6 +54,8 @@ namespace CloakedRobot.Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             InitializeRavenDb();
+
+            AutoMapperConfiguration.Configure();
 
         }
 

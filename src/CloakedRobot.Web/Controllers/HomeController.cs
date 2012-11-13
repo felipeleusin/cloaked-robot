@@ -1,5 +1,4 @@
 ﻿using CloakedRobot.Web.Infrastructure;
-using MyBlog.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using CloakedRobot.Web.Infrastructure.Extensions;
 using AttributeRouting.Web.Mvc;
+using CloakedRobot.Web.Models;
 
 namespace CloakedRobot.Web.Controllers
 {

@@ -16,6 +16,13 @@ namespace CloakedRobot.Web
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include("~/Scripts/modernizr-*"));
 
             bundles.Add(new Bundle("~/bundles/commonStyles", cssTransformer).Include("~/Content/site.less"));
+
+            bundles.Add(new Bundle("~/bundles/adminStyles", cssTransformer)
+                .Include("~/Content/inspiritas/inspiritas.less")
+                .Include("~/Content/admin.less"));
+
+            bundles.Add(new Bundle("~/bundles/loginStyles", cssTransformer)
+                .Include("~/Content/login.less"));
         }
     }
 }

@@ -17,7 +17,7 @@ namespace CloakedRobot.Web.Models
 
         public string OwnerEmail { get; set; }
 
-        public string BlogTitle { get; set; }
+        public string Title { get; set; }
 
         public int PageSize { get; set; }
 

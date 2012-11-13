@@ -1,0 +1,43 @@
+﻿@{
+   
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@if (!string.IsNullOrEmpty(ViewBag.Title)) { <text>@ViewBag.Title</text> } else { @ViewBag.BlogConfig.Title }</title>
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/bundles/adminStyles")
+    @RenderSection("Styles", false)
+</head>
+    <body>
+        <div class="container">
+            <div class="row-fluid">
+                @if (Request.IsAuthenticated)
+                {
+                    <div class="span3">
+                        <aside>
+                            <nav>
+                                <ul class="nav">
+                                    <li class="selected">
+                                        <a href="@Url.Action("Dashboard", "Home", new { area = "Admin" })"><i class="icon-play"></i> Dashboard</a>
+                                    </li>
+                                    <li><a href="@Url.Action("New", "Post", new { Area = "Admin"})"><i class="icon-pencil"></i> Write New Post</a></li>
+                                    <li>
+                                        <a href="@Url.Action("Index","Post", new { area = "Admin" })"><i class="icon-file"></i> Posts</a>
+                                    </li>
+                                    
+                                </ul>
+                            </nav>
+                        </aside>
+                    </div>
+                }
+                <div class="span9" id="content-wrapper">
+                    <div id="content">@RenderBody()</div>
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>

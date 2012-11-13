@@ -1,0 +1,20 @@
+﻿@model CloakedRobot.Web.Areas.Admin.Models.LoginInput
+
+@{
+}
+
+@section Styles {
+    @Styles.Render("~/bundles/loginStyles")
+}
+    <div class="form-signin">
+        <h1 class="form-signin-heading">Cloaked Robot</h1>
+        @using(Html.BeginBootstrapForm("Login"))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            @Html.EditorForModel()
+
+            <button type="submit" class="btn btn-primary">Login</button>
+        }
+    </div>
+

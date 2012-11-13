@@ -3,14 +3,33 @@
 @import "less/reset.less";
 
 .main {
+	
+}
+
+.content {
 	font-family: Cambria, 'Times New Roman', 'Nimbus Roman No9 L', 'Freeserif', Times, serif;
 	font-size: 1.1em;
 	max-width: 640px;
 	margin: 0 auto;
-	border-left: 1px solid @grayLight;
 }
 
 aside {
 	position: fixed;
+	top: 0;
 	left: 0;
+	padding: 2em;	
 }
+
+#logo {
+    .gravatar {
+        vertical-align: top;
+		.border-radius(40px);
+    }
+
+	.owner-name {
+		display: none;
+	}
+}
+
+
+

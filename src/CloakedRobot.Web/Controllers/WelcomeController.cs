@@ -35,7 +35,7 @@ namespace CloakedRobot.Web.Controllers
         {
             base.OnActionExecuting(filterContext);
 
-            BlogConfig config = RavenSession.Load<BlogConfig>("Blog/Config");
+            var config = RavenSession.Load<BlogConfig>("Blog/Config");
 
             if (config != null)
             {
