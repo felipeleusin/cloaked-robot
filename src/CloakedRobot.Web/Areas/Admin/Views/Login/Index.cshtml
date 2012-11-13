@@ -1,20 +1,32 @@
 ﻿@model CloakedRobot.Web.Areas.Admin.Models.LoginInput
 
 @{
+    Layout = null;
 }
 
-@section Styles {
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@if (!string.IsNullOrEmpty(ViewBag.Title)) { <text>@ViewBag.Title</text> } else { @ViewBag.BlogConfig.Title }</title>
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/bundles/adminStyles")
     @Styles.Render("~/bundles/loginStyles")
-}
-    <div class="form-signin">
-        <h1 class="form-signin-heading">Cloaked Robot</h1>
-        @using(Html.BeginBootstrapForm("Login"))
-        {
-            @Html.AntiForgeryToken()
-            @Html.ValidationSummary(true)
-            @Html.EditorForModel()
+</head>
+<body>
+    <div class="container">
+        <div class="form-signin">
+            <h1 class="form-signin-heading">Cloaked Robot</h1>
+            @using(Html.BeginBootstrapForm("Login"))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                @Html.EditorForModel()
 
-            <button type="submit" class="btn btn-primary">Login</button>
-        }
+                <button type="submit" class="btn btn-primary">Login</button>
+            }
+        </div>
     </div>
+</body>
+</html>
 

@@ -203,6 +203,7 @@
     <Content Include="Content\admin.min.css">
       <DependentUpon>admin.less</DependentUpon>
     </Content>
+    <Content Include="Content\font\fontawesome-webfont.svg" />
     <Content Include="Content\inspiritas\fonts\league_gothic-webfont.svg" />
     <Content Include="Content\inspiritas\fonts\museo_slab_500-webfont.svg" />
     <Content Include="Content\inspiritas\images\bg.png" />
@@ -223,6 +224,12 @@
     </Content>
     <Content Include="Content\less\bootstrap.min.css">
       <DependentUpon>bootstrap.less</DependentUpon>
+    </Content>
+    <Content Include="Content\less\font-awesome.css">
+      <DependentUpon>font-awesome.less</DependentUpon>
+    </Content>
+    <Content Include="Content\less\font-awesome.min.css">
+      <DependentUpon>font-awesome.less</DependentUpon>
     </Content>
     <Content Include="Content\less\utilities.css">
       <DependentUpon>utilities.less</DependentUpon>
@@ -339,6 +346,10 @@
     <Content Include="Content\inspiritas\fonts\museo_slab_500-webfont.eot" />
     <Content Include="Content\inspiritas\fonts\museo_slab_500-webfont.ttf" />
     <Content Include="Content\inspiritas\fonts\museo_slab_500-webfont.woff" />
+    <Content Include="Content\less\font-awesome.less" />
+    <Content Include="Content\font\fontawesome-webfont.eot" />
+    <Content Include="Content\font\fontawesome-webfont.ttf" />
+    <Content Include="Content\font\fontawesome-webfont.woff" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
