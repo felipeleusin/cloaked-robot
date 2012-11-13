@@ -20,6 +20,15 @@ namespace CloakedRobot.Web.Areas.Admin.Models
         [DataType(DataType.MultilineText)]
         public string Content { get; set; }
 
-        public string Permalink { get; set; }
+        [Display(Name = "Publication Date")]
+        [DataType(DataType.DateTime)]
+        public DateTimeOffset PublishAt { get; set; }
+
+        [Display(Name = "Date Created")]
+        [DataType(DataType.DateTime)]
+        public DateTimeOffset DateCreated { get; set; }
+
+        [Display(Name = "Enqueue publishing?")]
+        public bool EnqueuePublishing { get; set; }
     }
 }

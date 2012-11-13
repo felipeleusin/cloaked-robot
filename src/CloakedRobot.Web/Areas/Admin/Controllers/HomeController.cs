@@ -10,6 +10,7 @@ namespace CloakedRobot.Web.Areas.Admin.Controllers
     public class HomeController : AdminController
     {
         [GET("dashboard")]
+        [GET("/")]
         public ActionResult Dashboard()
         {
             return View();

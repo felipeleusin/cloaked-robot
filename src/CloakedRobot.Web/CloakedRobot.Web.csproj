@@ -181,7 +181,19 @@
     <Compile Include="Helpers\UrlHelperExtensions.cs" />
     <Compile Include="Infrastructure\AutoMapper\AutoMapperConfiguration.cs" />
     <Compile Include="Infrastructure\AutoMapper\AutoMapperExtensions.cs" />
+    <Compile Include="Infrastructure\AutoMapper\Profiles\AbstractProfile.cs" />
     <Compile Include="Infrastructure\AutoMapper\Profiles\BlogConfigProfile.cs" />
+    <Compile Include="Infrastructure\AutoMapper\Profiles\PostInputProfile.cs" />
+    <Compile Include="Infrastructure\AutoMapper\Profiles\Resolvers\DateTimeTypeConverter.cs" />
+    <Compile Include="Infrastructure\AutoMapper\Profiles\Resolvers\EmailHashResolver.cs" />
+    <Compile Include="Infrastructure\AutoMapper\Profiles\Resolvers\GuidToStringConverter.cs" />
+    <Compile Include="Infrastructure\AutoMapper\Profiles\Resolvers\MarkdownResolver.cs" />
+    <Compile Include="Infrastructure\AutoMapper\Profiles\Resolvers\MvcHtmlStringConverter.cs" />
+    <Compile Include="Infrastructure\AutoMapper\Profiles\Resolvers\RavenIdResolver.cs" />
+    <Compile Include="Infrastructure\AutoMapper\Profiles\Resolvers\SanitizeHtml.cs" />
+    <Compile Include="Infrastructure\AutoMapper\Profiles\Resolvers\StringToGuidConverter.cs" />
+    <Compile Include="Infrastructure\AutoMapper\Profiles\Resolvers\TagsResolver.cs" />
+    <Compile Include="Infrastructure\AutoMapper\Profiles\Resolvers\UrlResolver.cs" />
     <Compile Include="Infrastructure\BlogController.cs" />
     <Compile Include="Infrastructure\DisposableObject.cs" />
     <Compile Include="Infrastructure\Extensions\PostExtensions.cs" />
@@ -253,6 +265,7 @@
       <DependentUpon>site.less</DependentUpon>
     </Content>
     <Content Include="Global.asax" />
+    <Content Include="Scripts\App\Admin\post-form.js" />
     <Content Include="Scripts\highcharts.js" />
     <Content Include="Scripts\less.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />

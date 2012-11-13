@@ -23,6 +23,8 @@ namespace CloakedRobot.Web
 
             bundles.Add(new Bundle("~/bundles/loginStyles", cssTransformer)
                 .Include("~/Content/login.less"));
+
+            bundles.Add(new ScriptBundle("~/bundles/adminScripts").IncludeDirectory("~/Scripts/App/Admin", "*.js", true));
         }
     }
 }

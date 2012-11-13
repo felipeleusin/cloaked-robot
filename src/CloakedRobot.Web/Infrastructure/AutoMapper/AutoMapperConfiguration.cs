@@ -12,6 +12,7 @@ namespace CloakedRobot.Web.Infrastructure.AutoMapper
         public static void Configure()
         {
             Mapper.AddProfile<BlogConfigProfile>();
+            Mapper.AddProfile<PostInputProfile>();
         }
     }
 }

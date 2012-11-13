@@ -48,7 +48,27 @@ namespace CloakedRobot.Web.Areas.Admin.Controllers
         [ValidateInput(false)]
         public ActionResult Save(PostInput input)
         {
-            throw new NotImplementedException();
+            if (!ModelState.IsValid)
+            {
+                return View("Edit", input);
+            }
+
+            Post postDoc;            
+
+            if (input.Id > 0)
+            {
+                postDoc = RavenSession.Load<Post>(input.Id);
+            }
+            else
+            {
+                postDoc = new Post();
+                RavenSession.Store(postDoc);
+            }
+
+            input.MapPropertiesToInstance(postDoc);
+
+            return RedirectToAction("Index");
+            
         }
 
     }

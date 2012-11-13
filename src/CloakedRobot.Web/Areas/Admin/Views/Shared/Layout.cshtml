@@ -6,7 +6,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>@if (!string.IsNullOrEmpty(ViewBag.Title)) { <text>@ViewBag.Title</text> } else { @ViewBag.BlogConfig.Title }</title>
+    <title>@if (!string.IsNullOrEmpty(ViewBag.Title)) { <text>@ViewBag.Title</text> } else { <text>Cloaked Robot Admin</text> }</title>
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/bundles/adminStyles")
     @RenderSection("Styles", false)
@@ -26,8 +26,7 @@
                                     <li><a href="@Url.Action("New", "Post", new { Area = "Admin"})"><i class="icon-pencil"></i> Write New Post</a></li>
                                     <li>
                                         <a href="@Url.Action("Index","Post", new { area = "Admin" })"><i class="icon-file"></i> Posts</a>
-                                    </li>
-                                    
+                                    </li>                                    
                                 </ul>
                             </nav>
                         </aside>
@@ -38,6 +37,8 @@
                 </div>
             </div>
         </div>
-        
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        @Scripts.Render("~/bundles/adminScripts")
+        @RenderSection("Scripts", false)
     </body>
 </html>

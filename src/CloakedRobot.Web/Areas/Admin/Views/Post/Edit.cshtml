@@ -1,7 +1,6 @@
 ﻿@model CloakedRobot.Web.Areas.Admin.Models.PostInput
 
 @{
-    ViewBag.Title = "title";
 }
 
 <section>
@@ -17,7 +16,9 @@
 
                 @Html.BootstrapControlGroupFor(x => x.Title)
 
-                @Html.BootstrapControlGroupFor(x => x.Permalink)
+                @Html.BootstrapControlGroupFor(x => x.PublishAt)
+
+                @Html.BootstrapControlGroupFor(x => x.DateCreated)
 
                 @Html.BootstrapControlGroupFor(x => x.Content)
 
@@ -26,3 +27,7 @@
         </div>
     </div>
 </section>
+
+@section Scripts {
+    <script>PostForm();</script>
+}

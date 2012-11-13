@@ -1,21 +1,30 @@
 ﻿@model CloakedRobot.Web.ViewModels.BlogConfigInput
 
 @{
-    Layout = "~/Areas/Admin/Views/Shared/Layout.cshtml";
+    Layout = null;
 }
 
-@section Styles {
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Welcome to Cloaked Robot</title>
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/bundles/adminStyles")
     @Styles.Render("~/bundles/loginStyles")
-}
-<div class="container">
-    <div class="form-signin">
-        <h1 class="form-signin-heading">Welcome to Cloaked Robot!</h1>
-        <p>Complete the form below to create your blog</p>
-        @using(Html.BeginBootstrapForm("Configure"))
-        {
-            @Html.EditorForModel()
+</head>
+<body>
+    <div class="container">
+        <div class="form-signin">
+            <h1 class="form-signin-heading">Welcome to Cloaked Robot!</h1>
+            <p>Complete the form below to create your blog</p>
+            @using(Html.BeginBootstrapForm("Configure"))
+            {
+                @Html.EditorForModel()
 
-            <button type="submit" class="btn btn-primary">Create</button>
-        }
+                <button type="submit" class="btn btn-primary">Create</button>
+            }
+        </div>
     </div>
-</div>
+</body>
+</html>
