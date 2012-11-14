@@ -1,7 +1,7 @@
 using System;
 using AutoMapper;
 
-namespace RaccoonBlog.Web.Infrastructure.AutoMapper.Profiles.Resolvers
+namespace CloakedRobot.Web.Infrastructure.AutoMapper.Profiles.Resolvers
 {
 	public class GuidToStringConverter : TypeConverter<Guid, string>
 	{

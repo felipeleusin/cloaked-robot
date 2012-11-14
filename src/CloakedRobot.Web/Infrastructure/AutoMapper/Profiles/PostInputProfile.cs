@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using CloakedRobot.Web.Areas.Admin.Models;
+using CloakedRobot.Web.Infrastructure.AutoMapper.Profiles.Resolvers;
 using CloakedRobot.Web.Models;
-using RaccoonBlog.Web.Infrastructure.AutoMapper.Profiles.Resolvers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +17,6 @@ namespace CloakedRobot.Web.Infrastructure.AutoMapper.Profiles
                 .ForMember(x => x.Id, o => o.MapFrom(m => RavenIdResolver.Resolve(m.Id)))
                 .ForMember(x => x.Title, o => o.MapFrom(m => m.Title))
                 .ForMember(x => x.Content, o => o.MapFrom(m => m.Content))
-                .ForMember(x => x.Permalink, o => o.MapFrom(m => m.Permalink))
                 .ForMember(x => x.PublishAt, o => o.MapFrom(m => m.PublishAt));
 
             Mapper.CreateMap<PostInput, Post>()

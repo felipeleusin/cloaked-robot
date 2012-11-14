@@ -3,7 +3,7 @@ using System.Web;
 using System.Web.Mvc;
 using MarkdownDeep;
 
-namespace RaccoonBlog.Web.Infrastructure.AutoMapper.Profiles.Resolvers
+namespace CloakedRobot.Web.Infrastructure.AutoMapper.Profiles.Resolvers
 {
 	public class MarkdownResolver
 	{

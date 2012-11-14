@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
-namespace RaccoonBlog.Web.Infrastructure.AutoMapper.Profiles.Resolvers
+namespace CloakedRobot.Web.Infrastructure.AutoMapper.Profiles.Resolvers
 {
 	public class TagsResolver
 	{

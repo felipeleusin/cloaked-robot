@@ -16,7 +16,7 @@ namespace CloakedRobot.Web.Controllers
         public ActionResult Index()
         {
             var posts = RavenSession.Query<Post>()
-                            .Where(x => x.PublishAt <= DateTimeOffset.UtcNow && x.IsPublic == true)
+                            .Where(x => x.PublishAt <= DateTimeOffset.Now && x.IsPublic == true)
                             .Take(BlogConfig.PageSize)
                             .OrderByDescending(x => x.PublishAt)
                             .ToList();
@@ -29,7 +29,7 @@ namespace CloakedRobot.Web.Controllers
         {
             var post = RavenSession.Load<Post>(id);
 
-            if (post == null || post.PublishAt >= DateTimeOffset.UtcNow || post.IsPublic == false)
+            if (post == null || post.PublishAt >= DateTimeOffset.Now || post.IsPublic == false)
             {
                 return HttpNotFound();
             }

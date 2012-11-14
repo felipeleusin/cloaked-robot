@@ -1,7 +1,7 @@
 using System.Web.Mvc;
 using AutoMapper;
 
-namespace RaccoonBlog.Web.Infrastructure.AutoMapper.Profiles.Resolvers
+namespace CloakedRobot.Web.Infrastructure.AutoMapper.Profiles.Resolvers
 {
 	public class MvcHtmlStringConverter : TypeConverter<string, MvcHtmlString>
 	{

@@ -28,13 +28,17 @@ namespace CloakedRobot.Web.Areas.Admin.Controllers
         [GET("post/new")]
         public ActionResult New()
         {
-            return View("Edit", new PostInput());
+            return View("Edit", new PostInput()
+                                    {
+                                        DateCreated = DateTimeOffset.Now,
+                                        PublishAt = DateTimeOffset.MinValue
+                                    });
         }
 
         [GET("post/{id:int}")]
         public ActionResult Edit(int id)
         {
-            var post = RavenSession.Load<Post>();
+            var post = RavenSession.Load<Post>(id);
 
             if ( post == null )
             {
@@ -53,19 +57,25 @@ namespace CloakedRobot.Web.Areas.Admin.Controllers
                 return View("Edit", input);
             }
 
-            Post postDoc;            
+            var now = DateTimeOffset.Now;
 
-            if (input.Id > 0)
+            var post = RavenSession.Load<Post>(input.Id) ?? new Post() {DateCreated = now };
+
+            input.MapPropertiesToInstance(post);
+
+            if ( input.EnqueuePublishing == true )
             {
-                postDoc = RavenSession.Load<Post>(input.Id);
-            }
-            else
-            {
-                postDoc = new Post();
-                RavenSession.Store(postDoc);
+                // Gets last unplished post
+                var p =
+                    RavenSession.Query<Post>().OrderByDescending(x => x.PublishAt).Take(1).Select(x => new {x.PublishAt}).FirstOrDefault();
+
+                var lastPostDate = p == null || p.PublishAt < now ? now : p.PublishAt;
+
+                post.PublishAt = lastPostDate.AddDays(1);
             }
 
-            input.MapPropertiesToInstance(postDoc);
+            RavenSession.Store(input);
+            RavenSession.SaveChanges();
 
             return RedirectToAction("Index");
             
