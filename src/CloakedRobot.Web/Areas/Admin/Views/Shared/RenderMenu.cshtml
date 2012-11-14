@@ -1,0 +1,13 @@
+﻿@model IList<CloakedRobot.Web.Areas.Admin.Models.MenuItem>
+<ul class="nav">
+	@foreach (var menu in Model)
+	{
+		<li class="@(menu.IsCurrent ? "selected" : null)">
+			<a href="@menu.Url"><i class="@menu.Icon"></i> @menu.Title</a>
+			@if (menu.SubMenus != null)
+			{
+				Html.RenderPartial("RenderMenu", menu.SubMenus);
+			}
+		</li>
+	}
+</ul>

@@ -135,7 +135,7 @@ textarea {
 }
 .content {
   font-family: Cambria, 'Times New Roman', 'Nimbus Roman No9 L', 'Freeserif', Times, serif;
-  font-size: 1.1em;
+  font-size: 2em;
   max-width: 640px;
   margin: 0 auto;
 }
@@ -153,4 +153,13 @@ aside {
 }
 #logo .owner-name {
   display: none;
+}
+.post {
+  margin-bottom: 2em;
+}
+.post .post-title {
+  margin-bottom: 0.1em;
+}
+.post > time {
+  font-size: 0.6em;
 }

@@ -17,22 +17,30 @@
         return str;
     };
 
-    var permalink = $("#Permalink"),
+    var slug = $("#Slug"),
         title = $("#Title"),
+        form = $("#Form-Post"),
         hasManuallyChangedThePermalink = false;
 
     title.on("keyup",function() {
         if ( ! hasManuallyChangedThePermalink ) {
-            permalink.val(parseSlug(title.val()));
+            slug.val(parseSlug(title.val()));
         }
     });
 
-    permalink.on("keyup", function () {
-        if (permalink.val().length === 0) {
+    slug.on("keyup", function () {
+        if (slug.val().length === 0) {
             hasManuallyChangedThePermalink = false;
             title.trigger("keyup");
         }
 
         hasManuallyChangedThePermalink = true;
+        slug.val(parseSlug(slug.val()));
     });
+
+    form.on("submit", function() {
+        slug.val(parseSlug(slug.val()));
+    });
+
+    //$("#DatePublished,#DateCreated").datepicker({ format : "yyyy-mm-dd" });
 };

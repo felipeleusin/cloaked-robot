@@ -10,7 +10,7 @@ namespace CloakedRobot.Web.Infrastructure.Extensions
     {
         public static IQueryable<Post> WherePostIsPublished(this IQueryable<Post> query)
         {
-            return query.Where(x => x.PublishAt <= DateTimeOffset.UtcNow && x.IsPublic == true);
+            return query.Where(x => x.IsPublished == true);
         }
     }
 }

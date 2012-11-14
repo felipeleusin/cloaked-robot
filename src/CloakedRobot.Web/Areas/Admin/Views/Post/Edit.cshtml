@@ -1,6 +1,7 @@
 ﻿@model CloakedRobot.Web.Areas.Admin.Models.PostInput
 
 @{
+    
 }
 
 <section>
@@ -16,9 +17,13 @@
 
                 @Html.BootstrapControlGroupFor(x => x.Title)
 
-                @Html.BootstrapControlGroupFor(x => x.PublishAt)
+                @Html.BootstrapControlGroupFor(x => x.IsPublished)
 
-                @Html.BootstrapControlGroupFor(x => x.DateCreated)
+                if ( ! Model.IsNewPost )
+                {
+                    @Html.BootstrapControlGroupFor(x => x.DateCreated)
+                    @Html.BootstrapControlGroupFor(x => x.DatePublished)
+                }
 
                 @Html.BootstrapControlGroupFor(x => x.Content)
 

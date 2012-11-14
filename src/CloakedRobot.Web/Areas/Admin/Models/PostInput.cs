@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
@@ -20,15 +21,17 @@ namespace CloakedRobot.Web.Areas.Admin.Models
         [DataType(DataType.MultilineText)]
         public string Content { get; set; }
 
-        [Display(Name = "Publication Date")]
-        [DataType(DataType.DateTime)]
-        public DateTimeOffset PublishAt { get; set; }
-
         [Display(Name = "Date Created")]
-        [DataType(DataType.DateTime)]
+        [ReadOnly(true)]
         public DateTimeOffset DateCreated { get; set; }
 
-        [Display(Name = "Enqueue publishing?")]
-        public bool EnqueuePublishing { get; set; }
+        [Display(Name = "Is Published")]
+        public bool IsPublished { get; set; }
+
+        [Display(Name = "Date Published")]
+        public DateTimeOffset DatePublished { get; set; }
+
+        [HiddenInput]
+        public bool IsNewPost { get; set; }
     }
 }

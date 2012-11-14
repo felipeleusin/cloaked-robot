@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 
@@ -37,6 +38,25 @@ namespace CloakedRobot.Web.Helpers
 
             var regex = new Regex("(?<=[a-z])(?<x>[A-Z0-9])|(?<=.)(?<x>[A-Z0-9])(?=[a-z])");
             return regex.Replace(s, " ${x}");
+        }
+
+        public static string GenerateSlug(this string phrase)
+        {
+            string str = phrase.RemoveAccent().ToLower();
+            // invalid chars           
+            str = Regex.Replace(str, @"[^a-z0-9\s-]", "");
+            // convert multiple spaces into one space   
+            str = Regex.Replace(str, @"\s+", " ").Trim();
+
+            str = Regex.Replace(str, @"\s", "-"); // hyphens   
+
+            return str;
+        }
+
+        public static string RemoveAccent(this string txt)
+        {
+            byte[] bytes = Encoding.GetEncoding("Cyrillic").GetBytes(txt);
+            return Encoding.ASCII.GetString(bytes);
         }
     }
 }

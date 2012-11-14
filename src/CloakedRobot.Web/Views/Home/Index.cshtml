@@ -1,5 +1,14 @@
-﻿@{
-    ViewBag.Title = "Index";
+﻿@model System.Collections.Generic.List<CloakedRobot.Web.ViewModels.PostViewModel>
+
+@{
 }
 
-<h2>Index</h2>
+@foreach(var post in Model)
+{
+    <article class="post">
+        <h2 class="post-title">@post.Title</h2>
+        @Html.Html5MinutesAgoTag(post.DatePublished)
+        
+        @Html.Raw(post.Content)
+    </article>       
+}

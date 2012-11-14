@@ -7,31 +7,21 @@ using AttributeRouting.Web.Mvc;
 using CloakedRobot.Web.Areas.Admin.Models;
 using CloakedRobot.Web.Infrastructure.AutoMapper;
 using CloakedRobot.Web.Models;
+using Raven.Client;
 using Raven.Client.Linq;
 
 namespace CloakedRobot.Web.Areas.Admin.Controllers
 {
     public class PostController : AdminController
     {
-        [GET("posts")]
-        public ActionResult Index(int page = 1, int pageSize = 25, string sort = "PublishAt", bool sortDesc = true )
-        {
-            var posts = RavenSession.Advanced.LuceneQuery<Post>()
-                            .AddOrder(sort, sortDesc)
-                            .Skip( (page-1) * pageSize)
-                            .Take( pageSize )
-                            .ToList();
-
-            return View(posts);
-        }
-
         [GET("post/new")]
         public ActionResult New()
         {
             return View("Edit", new PostInput()
                                     {
                                         DateCreated = DateTimeOffset.Now,
-                                        PublishAt = DateTimeOffset.MinValue
+                                        DatePublished = DateTimeOffset.MinValue,
+                                        IsNewPost = true
                                     });
         }
 
@@ -63,22 +53,46 @@ namespace CloakedRobot.Web.Areas.Admin.Controllers
 
             input.MapPropertiesToInstance(post);
 
-            if ( input.EnqueuePublishing == true )
+            if (post.IsPublished == false)
             {
-                // Gets last unplished post
-                var p =
-                    RavenSession.Query<Post>().OrderByDescending(x => x.PublishAt).Take(1).Select(x => new {x.PublishAt}).FirstOrDefault();
-
-                var lastPostDate = p == null || p.PublishAt < now ? now : p.PublishAt;
-
-                post.PublishAt = lastPostDate.AddDays(1);
+                post.DatePublished = DateTimeOffset.MinValue;
+            }
+            else if (post.IsPublished && post.DatePublished == DateTimeOffset.MinValue )
+            {
+                post.DatePublished = now;
             }
 
-            RavenSession.Store(input);
+            RavenSession.Store(post);
             RavenSession.SaveChanges();
 
+            TempData["StatusMessage"] = "Post saved!";
+
             return RedirectToAction("Index");
-            
+        }
+
+        [POST("post/update-publishing")]
+        public ActionResult ChangePublished(int id, bool isPublished)
+        {
+            var post = RavenSession.Load<Post>(id);
+            if (post == null)
+            {
+                return HttpNotFound("Post not found");
+            }
+
+            // Unpublishing a published post
+            if (post.IsPublished && !isPublished)
+            {
+                post.DatePublished = DateTimeOffset.MinValue;
+            }
+                // Publishing an unpublished post
+            else if (!post.IsPublished && isPublished)
+            {
+                post.DatePublished = DateTimeOffset.Now;
+            }
+
+            post.IsPublished = isPublished;
+
+            return Json(new {success = true});
         }
 
     }

@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>@if (!string.IsNullOrEmpty(ViewBag.Title)) { <text>@ViewBag.Title</text> } else { @ViewBag.BlogConfig.BlogTitle }</title>
+    <title>@if (!string.IsNullOrEmpty(ViewBag.Title)) { <text>@ViewBag.Title</text> } else { @ViewBag.BlogConfig.Title }</title>
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/bundles/commonStyles")
 </head>

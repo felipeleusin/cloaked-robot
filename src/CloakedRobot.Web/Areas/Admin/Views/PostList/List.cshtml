@@ -1,0 +1,48 @@
+﻿@using CloakedRobot.Web.Infrastructure.AutoMapper.Profiles.Resolvers
+@model CloakedRobot.Web.Areas.Admin.Models.PostList
+
+@{
+    ViewBag.Title = "Posts";
+}
+
+<section>
+    <header>
+        <div class="pull-right">
+            <form action="@Url.Action("List")" method="GET" class="form-search">
+                <div class="input-append">
+                    <input type="search" name="query" class="input-medium search-query" />
+                    <button type="submit" class="btn">Search</button>
+                </div>
+            </form>
+        </div>
+        <h1>Posts</h1>
+    </header>
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert-block alert-success">@TempData["SuccessMessage"]</div>
+    }
+    <table class="table table-striped full-section table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Published Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var p in Model.Posts)
+            {
+                <tr>
+                    <td>@RavenIdResolver.Resolve(p.Id)</td>
+                    <td>@p.Title</td>
+                    <td>@((p.IsPublished) ? Html.Raw(p.DatePublished.ToString()) : Html.Raw("Unpublished"))</td>
+                    <td>
+                        <a href="@Url.Action("Edit", "Post", new { id = RavenIdResolver.Resolve(p.Id), area = "admin" })" class="btn">Edit</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</section>

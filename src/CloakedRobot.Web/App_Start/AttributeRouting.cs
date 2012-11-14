@@ -15,6 +15,7 @@ namespace CloakedRobot.Web.App_Start {
 			                              {
 			                                  cfg.UseLowercaseRoutes = true;
                                               cfg.AddRoutesFromAssemblyOf<BlogController>();
+			                                  cfg.AppendTrailingSlash = true;
 			                              });
 		}
 

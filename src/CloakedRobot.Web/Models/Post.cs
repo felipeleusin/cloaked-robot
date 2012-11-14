@@ -10,12 +10,10 @@ namespace CloakedRobot.Web.Models
 
         public string Content { get; set; }
 
-        public string Permalink { get; set; }
+        public bool IsPublished { get; set; }
 
-        public DateTimeOffset PublishAt { get; set; }
+        public DateTimeOffset DatePublished { get; set; }
 
         public DateTimeOffset DateCreated { get; set; }
-
-        public bool IsPublic { get; set; }
     }
 }

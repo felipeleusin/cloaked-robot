@@ -171,8 +171,12 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\PostController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PostListController.cs" />
+    <Compile Include="Areas\Admin\Helpers\MenuUtil.cs" />
     <Compile Include="Areas\Admin\Models\LoginInput.cs" />
+    <Compile Include="Areas\Admin\Models\MenuItem.cs" />
     <Compile Include="Areas\Admin\Models\PostInput.cs" />
+    <Compile Include="Areas\Admin\Models\PostList.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\WelcomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -180,13 +184,15 @@
     </Compile>
     <Compile Include="Helpers\BootstrapExtensions.cs" />
     <Compile Include="Helpers\GravatarHtmlExtensions.cs" />
+    <Compile Include="Helpers\HtmlExtensions.cs" />
     <Compile Include="Helpers\StringExtensions.cs" />
+    <Compile Include="Helpers\TimeSpanExtensions.cs" />
     <Compile Include="Helpers\UrlHelperExtensions.cs" />
     <Compile Include="Infrastructure\AutoMapper\AutoMapperConfiguration.cs" />
     <Compile Include="Infrastructure\AutoMapper\AutoMapperExtensions.cs" />
     <Compile Include="Infrastructure\AutoMapper\Profiles\AbstractProfile.cs" />
     <Compile Include="Infrastructure\AutoMapper\Profiles\BlogConfigProfile.cs" />
-    <Compile Include="Infrastructure\AutoMapper\Profiles\PostInputProfile.cs" />
+    <Compile Include="Infrastructure\AutoMapper\Profiles\PostProfile.cs" />
     <Compile Include="Infrastructure\AutoMapper\Profiles\Resolvers\DateTimeTypeConverter.cs" />
     <Compile Include="Infrastructure\AutoMapper\Profiles\Resolvers\EmailHashResolver.cs" />
     <Compile Include="Infrastructure\AutoMapper\Profiles\Resolvers\GuidToStringConverter.cs" />
@@ -200,6 +206,7 @@
     <Compile Include="Infrastructure\BlogController.cs" />
     <Compile Include="Infrastructure\DisposableObject.cs" />
     <Compile Include="Infrastructure\Extensions\PostExtensions.cs" />
+    <Compile Include="Infrastructure\Indexes\Posts_Query.cs" />
     <Compile Include="Infrastructure\Tasks\BackgroundTask.cs" />
     <Compile Include="Infrastructure\Tasks\TaskExecutor.cs" />
     <Compile Include="Models\BlogConfig.cs" />
@@ -240,6 +247,9 @@
     <Content Include="Content\less\bootstrap.min.css">
       <DependentUpon>bootstrap.less</DependentUpon>
     </Content>
+    <Content Include="Content\less\datepicker.min.css">
+      <DependentUpon>datepicker.less</DependentUpon>
+    </Content>
     <Content Include="Content\less\font-awesome.css">
       <DependentUpon>font-awesome.less</DependentUpon>
     </Content>
@@ -269,10 +279,17 @@
     </Content>
     <Content Include="Global.asax" />
     <Content Include="Scripts\App\Admin\post-form.js" />
+    <Content Include="Scripts\App\Admin\post-list.js" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
+    <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\highcharts.js" />
     <Content Include="Scripts\less.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Web.config" />
+    <Content Include="Scripts\showdown.js" />
+    <Content Include="Scripts\showdown.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -284,7 +301,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Infrastructure\ActionFilters\" />
-    <Folder Include="Views\Shared\EditorTemplates\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -301,8 +317,9 @@
     <Content Include="Areas\Admin\Views\Shared\Layout.cshtml" />
     <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Dashboard.cshtml" />
-    <Content Include="Areas\Admin\Views\Post\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\PostList\List.cshtml" />
     <Content Include="Areas\Admin\Views\Post\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\RenderMenu.cshtml" />
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -348,7 +365,6 @@
     <Content Include="Content\less\bootstrap.less" />
     <Content Include="Content\less\alerts.less" />
     <Content Include="Content\less\accordion.less" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Welcome\Index.cshtml" />
     <Content Include="Content\admin.less" />
     <Content Include="Content\login.less" />
@@ -366,6 +382,8 @@
     <Content Include="Content\font\fontawesome-webfont.eot" />
     <Content Include="Content\font\fontawesome-webfont.ttf" />
     <Content Include="Content\font\fontawesome-webfont.woff" />
+    <Content Include="Content\less\datepicker.less" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

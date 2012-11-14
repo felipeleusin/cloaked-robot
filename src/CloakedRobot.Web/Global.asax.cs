@@ -1,4 +1,5 @@
-﻿using CloakedRobot.Infrastructure.Tasks;
+﻿using System.Reflection;
+using CloakedRobot.Infrastructure.Tasks;
 using CloakedRobot.Web.Infrastructure;
 using CloakedRobot.Web.Infrastructure.AutoMapper;
 using Raven.Client;
@@ -11,6 +12,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Raven.Client.Indexes;
 
 namespace CloakedRobot.Web
 {
@@ -65,6 +67,8 @@ namespace CloakedRobot.Web
             {
                 ConnectionStringName = "RavenDB"
             }.Initialize();
+
+            IndexCreation.CreateIndexes(Assembly.GetExecutingAssembly(), RavenStore);
 
             BlogController.RavenStore = RavenStore;
         }
